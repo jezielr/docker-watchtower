@@ -11,3 +11,12 @@ Impacto en Recursos: Ultra ligero. Consumo aproximado de 10 a 15 MB de RAM y 0% 
 ## Optimización
 
 Optimización de Almacenamiento: Con la directiva WATCHTOWER_CLEANUP=true, elimina de forma inmediata las imágenes obsoletas (dangling images), evitando que la tarjeta SD o disco SSD se llene de espacio desperdiciado.
+
+## Monitoreo
+
+Para monitorear los contenedores se debe agregar esta linea
+
+```bash
+labels:
+  - "com.centurylinklabs.watchtower.enable=true"
+```
