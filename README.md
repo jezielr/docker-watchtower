@@ -20,3 +20,18 @@ Para monitorear los contenedores se debe agregar esta linea
 labels:
   - "com.centurylinklabs.watchtower.enable=true"
 ```
+
+## Verificar versión actualizada de las imagenes
+```bash
+docker logs watchtower | grep -E "Found new|Updated"
+```
+
+## Verificar la versión de la imagen
+
+```bash
+# Para MeTube u otros proyectos en GHCR/DockerHub
+docker inspect --format '{{ index .Config.Labels "org.opencontainers.image.version" }}' metube
+
+# Si el desarrollador usó etiquetas personalizadas de build
+docker inspect --format '{{ json .Config.Labels }}' metube | jq
+```
