@@ -5,8 +5,8 @@ services:
     restart: unless-stopped
     environment:
       - TZ=America/La_Paz
-      # Revisa cada 24 horas (en segundos)
-      - WATCHTOWER_POLL_INTERVAL=86400
+      # 6 Campos: Segundos Minutos Horas DíaMes Mes DíaSemana
+      - WATCHTOWER_CRON_SCHEDULE=0 0 0 * * *
       # Elimina las imágenes viejas tras actualizar para ahorrar espacio en SD/SSD
       - WATCHTOWER_CLEANUP=true
       # Activa la comprobación estricta de labels

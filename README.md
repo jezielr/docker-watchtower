@@ -7,6 +7,13 @@ Watchtower es un servicio de automatización de ciclo de vida de contenedores. S
 
 Impacto en Recursos: Ultra ligero. Consumo aproximado de 10 a 15 MB de RAM y 0% CPU en estado de reposo.
 
+## Configurar hora de actualización en el environment del docker-compose.yml
+Referencia: https://crontab.guru/
+
+```bash
+    # Programación para ejecutar todos los días a las 3:00 AM (0s 0m 3h * * *)
+    - WATCHTOWER_CRON_SCHEDULE=0 0 3 * * *
+```
 
 ## Optimización
 
