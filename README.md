@@ -42,3 +42,13 @@ docker inspect --format '{{ index .Config.Labels "org.opencontainers.image.versi
 # Si el desarrollador usó etiquetas personalizadas de build
 docker inspect --format '{{ json .Config.Labels }}' metube | jq
 ```
+
+## Verificar monitores activos de actualización
+```bash
+docker ps --filter "label=com.centurylinklabs.watchtower.enable=true" --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+```
+
+## Ejecutar monitoreo manual
+```bash
+docker exec watchtower /watchtower --run-once
+```

@@ -5,14 +5,16 @@ services:
     restart: unless-stopped
     environment:
       - TZ=America/La_Paz
-      # 6 Campos: Segundos Minutos Horas DíaMes Mes DíaSemana
-      - WATCHTOWER_CRON_SCHEDULE=0 0 0 * * *
+      # 6 Campos: Segundos-Minutos-Horas-DíaMes-Mes-DíaSemana
+      - WATCHTOWER_SCHEDULE=0 0 0 * * *
       # Elimina las imágenes viejas tras actualizar para ahorrar espacio en SD/SSD
       - WATCHTOWER_CLEANUP=true
       # Activa la comprobación estricta de labels
       - WATCHTOWER_LABEL_ENABLE=true
       # Envía notificaciones opcionales si falla algo (desactivado por defecto)
       - WATCHTOWER_INCLUDE_RESTARTING=true
+      # Habilitar en caso de log completo
+      - WATCHTOWER_DEBUG=true
     volumes:
       # Socket de Docker obligatorio para monitorear el resto de contenedores
       - /var/run/docker.sock:/var/run/docker.sock
